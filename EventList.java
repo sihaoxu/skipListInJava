@@ -138,7 +138,7 @@ class EventList {
 	    while(l>=0)
 	    {
 	    	Event[] y=x[l].next;
-	    	if(y[l].year<year)
+	    	if(y[l].year<=year)
 	    	{
 	    		x=y;
 	    	}
@@ -153,7 +153,7 @@ class EventList {
 	    			int i=1;
 	    			Event node=y[0].prev[0];
 	    			result[0]=node;
-                    while((node.year!=min)&&(node.prev[0].year==node.year))
+                    while(node.prev[0].year==node.year)
                     {
                     	node=node.prev[0];
                     	result[i]=node;
