@@ -10,6 +10,9 @@ class Event {
     
     public int year;             // the year of the event
     public String description;   // the event description
+    public Event[] next=null;
+    public Event[] prev=null;
+    public int height=1;
     
     // constructor
     public Event(int iyear, String idescription)
