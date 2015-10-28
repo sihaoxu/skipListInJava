@@ -1,4 +1,4 @@
-*** RUNNING PRE-TURNIN TESTS ON 2015-10-28 15:03:45 CDT ***
+*** RUNNING PRE-TURNIN TESTS ON 2015-10-28 16:04:00 CDT ***
 * Language is Java
 
 * Running test #1
@@ -11,59 +11,10 @@
 
 * Running test #3
 * Arguments: skip/allEvents.txt skip/query2.txt
-ERROR: output differs from expected result:
-@@ -1,22 +1,17 @@
- > FINDMOSTRECENT 1543
--1543 Andreas Vesalius publishes De Fabrica Corporis Humani which corrects Greek medical errors and revolutionizes medicine
--1543 Ludwig Senfl, German composer, dies
--1543 Nicholas Copernicus shows that his heliocentric theory simplifies planetary motion tables in De Revolutionibus de Orbium Coelestium
--1543 Wiliam Byrd, English composer, born
-+1542 Jakob Meiland, German composer, born
-+1542 Juan Rodriguez Cabrilho explores in area of San Diego for Spain
- > FINDMOSTRECENT -1
- -38 Chinese octave is subdivided into 60 notes
- > FINDMOSTRECENT 1800
--1800 Alessandro Volta announces his invention of the electric battery
--1800 Boieldieu: "Le Calife de Bagdad," opera, Paris
--1800 Cherubini: "Les Deux Journees" (The Water Carrier), opera, Paris
--1800 Congress establishes Library of Congress
--1800 Fillmore, 13th President, born; dies 1874
--1800 House elects President Jefferson after electoral college tie with Burr
--1800 Humphry Davy announces the anaesthetic properties of nitrous oxide
--1800 Nicola Piccini, Italian composer, Gluck's rival in Paris, dies
--1800 Spain returns Louisiana to France
--1800 William Herschel discovers infrared radiation from the Sun
--1800 William Nicholson and Anthony Carlisle use electrolysis to separate water into hydrogen and oxygen
-+1799 Barberina Campanini, Italian dancer, dies
-+1799 Beethoven: Symphony No. 1 in C major
-+1799 French Revolution ends.  Napolean becomes ruler of France
-+1799 George Washington dies in Mount Vernon December 14, from quinsy
-+1799 Haydn: "The Creation," oratorio, Vienna
-+1799 Karl Ditter von Dittersdorf, Austrian composer, dies
-+1799 Karl Gauss proves that every polynomial equation has a solution among the complex numbers
-+1799 Patrick Henry dies June 6
- > DELETE 1800
- > FINDMOSTRECENT 1800
- 1799 Barberina Campanini, Italian dancer, dies
---- FAILED test #3
++++ PASSED test #3
 
 * Running test #4
 * Arguments: skip/allEvents.txt skip/query3.txt
-ERROR: output differs from expected result:
-@@ -17,7 +17,12 @@
- 1355 Jean de Muris, French composer dies
- 1360 Beginnings of the development of the clavichord and cembalo
- > FINDMOSTRECENT 1563
--1563 William Byrd made organist at Lincoln Cathedral
-+1562 Adrian Willaert, Flemish composer, dies
-+1562 French establish trading post in South Carolina, erect monument in FL
-+1562 Gasparo Bertolotti da Salo moves to Brescia to become first great Italian violin maker
-+1562 Jan Sweelinck, Dutch composer and organist, born
-+1562 John Bull, English organist and composer, born
-+1562 John Hawkins begins slave trade between Guinea and West Indies
- > FINDMOSTRECENT 1208
- 1202 Leonardo Fibonacci demonstrates the utility of Arabic numerals in his Book of the Abacus
- > DELETE 1579
---- FAILED test #4
++++ PASSED test #4
 
-* Passed 2/4 tests
+* Passed 4/4 tests
