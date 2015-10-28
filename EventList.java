@@ -9,9 +9,9 @@ class EventList {
     Random randseq;
     int max=Integer.MAX_VALUE;
     int min=Integer.MIN_VALUE;
-    Event[] head=new Event[1000];
+    Event[] head=new Event[1];
     
-    Event[] tail=new Event[1000];
+    Event[] tail=new Event[1];
     ////////////////////////////////////////////////////////////////////
     // Here's a suitable geometric random number generator for choosing
     // pillar heights.  We use Java's ability to generate random booleans
@@ -32,20 +32,13 @@ class EventList {
     public EventList()
     {
 	randseq = new Random(58243); // You may seed the PRNG however you like.
-    for(int i=0;i<1000;i++)
-    {
-    	head[i]=new Event(min,null);
-    	head[i].height=1000;
-    	head[i].next=tail;
-    }
 
-    for(int i=0;i<1000;i++)
-    {
-    	tail[i]=new Event(max,null);
-    	tail[i].height=1000;
-    	tail[i].prev=head;
-    }
-    
+    	head[0]=new Event(min,null);
+    	head[0].height=1;
+    	head[0].next=tail;
+    	tail[0]=new Event(max,null);
+    	tail[0].height=1;
+    	tail[0].prev=head;
     
     }
 
@@ -63,6 +56,38 @@ class EventList {
 	    {
 	    	pillar[i]=new Event(eyear,edes);
 	    	pillar[i].height=t;
+	    }
+	    if(t>head[0].height)
+	    {
+	    	int h=head[0].height;
+	    	int newh=h*2;
+	    	Event[] temhead=head;
+	    	Event[] temtail=tail;
+	    	head=new Event[newh];
+	    	tail=new Event[newh];
+	    	for(int p=0;p<newh;p++)
+	    	{
+	    		if(p<h)
+	    		{
+	    			head[p]=new Event(temhead[p].year,temhead[p].description);
+	    		    head[p].height=newh;
+	    		    head[p].next=temhead[p].next;
+	    		    tail[p]=new Event(temtail[p].year,temtail[p].description);
+	    		    tail[p].height=newh;
+	    		    tail[p].prev=temtail[p].prev;
+	    		}
+	    		else
+	    		{
+	    			head[p]=new Event(min,null);
+	    	    	head[p].height=newh;
+	    	    	head[p].next=tail;
+	    	    	tail[p]=new Event(max,null);
+	    	    	tail[p].height=newh;
+	    	    	tail[p].prev=head;
+	    			
+	    		}
+	    	}
+
 	    }
 	    //System.out.println(pillar[0].height+"gaodu");
 	    int l=head[0].height-1;
