@@ -99,7 +99,6 @@ class EventList {
 	    	
 	    	//System.out.println(y[l].year);
 	    	
-	    	//System.out.println(y[l].year);
 
 	    	if(y[0].year<e.year)
 	    	{
