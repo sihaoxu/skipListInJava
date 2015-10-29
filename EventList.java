@@ -38,7 +38,7 @@ class EventList {
     	head[0].next=tail;
     	tail[0]=new Event(max,null);
     	tail[0].height=1;
-    	tail[0].prev=head;
+ 
     
     }
 
@@ -74,7 +74,7 @@ class EventList {
 	    		    head[p].next=temhead[p].next;
 	    		    tail[p]=new Event(temtail[p].year,temtail[p].description);
 	    		    tail[p].height=newh;
-	    		    tail[p].prev=temtail[p].prev;
+
 	    		}
 	    		else
 	    		{
@@ -83,7 +83,7 @@ class EventList {
 	    	    	head[p].next=tail;
 	    	    	tail[p]=new Event(max,null);
 	    	    	tail[p].height=newh;
-	    	    	tail[p].prev=head;
+
 	    			
 	    		}
 	    	}
@@ -113,8 +113,8 @@ class EventList {
 
 	    			pillar[l].next=y;
 	    			
-	    			pillar[l].prev=x;
-                    y[l].prev=pillar;
+
+
 	    			x[l].next=pillar;
 	    		}
 	    		l--;
@@ -138,7 +138,7 @@ class EventList {
 		{
 			Event[] node=y[l].next;
 			x[l].next=node;
-			node[l].prev=x;
+
 
 		}
 		else if(y[l].year<year)
@@ -159,11 +159,16 @@ class EventList {
     {
 	    int l=head[0].height-1;
 	    Event[] x=head;
+	    Event[] z=x;
 	    Event[] result=new Event[1000];
 	    while(l>=0)
 	    {
 	    	Event[] y=x[l].next;
-	    	if(y[l].year<=year)
+	    	while((y[l].next!=null)&&(y[l].next[l].year==y[l].year))
+	    	{
+	    		y=y[l].next;
+	    	}
+	    	if((y[l].next!=null)&&(y[l].next[l].year<=year))
 	    	{
 	    		x=y;
 	    	}
@@ -171,16 +176,13 @@ class EventList {
 	    	{
 	    		if(l==0)
 	    		{
-	    			if(y[0].prev==head)
-	    			{
-	    				return null;
-	    			}
+
 	    			int i=1;
-	    			Event node=y[0].prev[0];
+	    			Event node=x[0].next[0];
 	    			result[0]=node;
-                    while(node.prev[0].year==node.year)
+                    while(node.next[0].year==node.year)
                     {
-                    	node=node.prev[0];
+                    	node=node.next[0];
                     	result[i]=node;
                     	i++;
                     }
@@ -214,30 +216,28 @@ class EventList {
     		Event[] y=x[l].next;
     		if((y[l].year>=first)&&(y[l].year<=last))
     		{
-               result[0]=y[0];
-               int i=1;
-               Event[] node=y[0].next;
-               Event[] pre=y[0].prev;
-               while(node[0].year<=last)
-               {
-            	   result[i]=node[0];
-            	   i++;
-            	   node=node[0].next;
-               }
-               while(pre[0].year>=first)
-               {
-            	   result[i]=pre[0];
-            	   i++;
-            	   pre=pre[0].prev;
-               }
-               Event[] finalResult=new Event[i];
-               for(int j=0;j<=i-1;j++)
-               {
-            	   int ryear=result[j].year;
-            	   String rdes=result[j].description;
-            	   finalResult[j]=new Event(ryear,rdes);
-               }
-               return finalResult;
+    			if(l==0)
+    			{
+    			     result[0]=y[0];
+                     int i=1;
+                     Event[] node=y[0].next;
+                     while(node[0].year<=last)
+                     {
+            	         result[i]=node[0];
+            	         i++;
+            	         node=node[0].next;
+                     }
+
+                     Event[] finalResult=new Event[i];
+                     for(int j=0;j<=i-1;j++)
+                     {
+            	         int ryear=result[j].year;
+            	         String rdes=result[j].description;
+            	         finalResult[j]=new Event(ryear,rdes);
+                     }
+                     return finalResult;
+    			}
+                l--;
 
     		}
     		else if(y[l].year<first)
