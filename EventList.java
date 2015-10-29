@@ -158,7 +158,6 @@ class EventList {
     {
 	    int l=head[0].height-1;
 	    Event[] x=head;
-	    Event[] z=x;
 	    Event[] result=new Event[1000];
 	    while(l>=0)
 	    {
@@ -175,6 +174,10 @@ class EventList {
 	    	{
 	    		if(l==0)
 	    		{
+	    			if(x[0].next[0].year>year)
+	    			{
+	    				return null;
+	    			}
 
 	    			int i=1;
 	    			Event node=x[0].next[0];
