@@ -1,4 +1,4 @@
-*** RUNNING PRE-TURNIN TESTS ON 2015-10-28 23:02:53 CDT ***
+*** RUNNING PRE-TURNIN TESTS ON 2015-10-29 00:30:24 CDT ***
 * Language is Java
 
 * Running test #1
@@ -11,10 +11,18 @@
 
 * Running test #3
 * Arguments: skip/allEvents.txt skip/query2.txt
-+++ PASSED test #3
+ERROR: output differs from expected result:
+@@ -37,5 +37,6 @@
+ 1798 Washington comes out of retirement to be Commander In Chief of Army
+ 1798 XYZ Affair, so named after three anonymous French trouble makers
+ > FINDMOSTRECENT -9000
++-7000 Pottery is invented
+ > FINDMOSTRECENT -6999
+ -7000 Pottery is invented
+--- FAILED test #3
 
 * Running test #4
 * Arguments: skip/allEvents.txt skip/query3.txt
 +++ PASSED test #4
 
-* Passed 4/4 tests
+* Passed 3/4 tests
